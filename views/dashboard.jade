@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Monitoring data base
+
+  div#dispaly(style='width:500px')
+    ul 
+      each user in users
+        li=user.name+'--'+user.email
+  
+  script(src='javascripts/index.js')  
