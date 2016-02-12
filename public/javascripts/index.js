@@ -20,4 +20,3 @@ var socket = io.connect('/');
     $("#send").on('click', function(){
     	socket.emit('message_client',{msj:"jose"});
     });
-

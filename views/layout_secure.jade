@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/bower_components/material-design-lite/material.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/material-design-lite/material.js')
+    script(src='./socket.io/socket.io.js')
+    
+  body    
+    div.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      header.mdl-layout__header
+        div.mdl-layout__header-row
+          span.mdl-layout-title
+          div.mdl-layout-spacer
+          nav.mdl-navigation.mdl-layout--large--screen-only
+            a.mdl-navigation__link(href="#") home
+            a.mdl-navigation__link(href="#") configure
+            a.mdl-navigation__link(href="#") message
+            a.mdl-navigation__link(href="/auth/logout") Salir
+      div.mdl-layout__drawer
+        span.mdl-layout-title
+          nav.mdl-navigation
+            a.mdl-navigation__link(href="#") home
+            a.mdl-navigation__link(href="#") configure
+            a.mdl-navigation__link(href="#") message
+            a.mdl-navigation__link(href="#") message
+            div.mdl-layout-spacer Modos del editor
+            ul
+              li.modoli
+                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-1")
+                  input#switch-1.mdl-radio__button(type="radio" name="modo" value="javascript")
+                  span.mdl-radio__label javascript
+              li.modoli
+                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-2")
+                  input#switch-2.mdl-radio__button(type="radio" name="modo" value="html")
+                  span.mdl-radio__label html
+              li.modoli
+                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-3")
+                  input#switch-3.mdl-radio__button(type="radio" name="modo" value="css")
+                  span.mdl-radio__label css
+              li.modoli
+                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-4")
+                  input#switch-4.mdl-radio__button(type="radio" name="modo" value="php")
+                  span.mdl-radio__label php
+                              
+      main.mdl-layout__content
+        div.page-content
+          block content
+  script(src='/bower_components/webcomponentsjs/webcomponents.js')         
+  script(src='/bower_components/ace-builds/src-min-noconflict/ace.js') 
+  block script

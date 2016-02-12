@@ -1,12 +1,9 @@
-extends layout
+extends layout_secure
 
 block content
-  h1= title
-  p Monitoring data base
-  input#send(type='button',value='send')
-  div#dispaly(style='width:500px')
-    ul 
-      each user in users
-        li=user.name+'--'+user.email
+  pre#editor
   
-  script(src='javascripts/index.js')  
+  
+block script 
+  script(src='javascripts/index.js') 
+  script(src='javascripts/editor.js') 
