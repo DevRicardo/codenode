@@ -17,13 +17,12 @@
  var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
     editor.session.setMode("ace/mode/javascript");
+    editor.$blockScrolling = Infinity;
 
     // eventos de la sesion
-    editor.session.on('change', function(e){
+    editor.session.on('change', function(e){       
         
         
-        console.log();
-
     });
 
     // eventos del editor
@@ -31,9 +30,31 @@
         console.log(e);
     });
 
-
-
     // Detectar cambios en el modo del editor
     $(".mdl-radio__button").on('change', function(){
         editor.session.setMode("ace/mode/"+this.value);	
     });
+
+    // detectar cuando se preciona una tecla
+    $("#editor").on('keyup',function(){
+          
+          socket.emit('change_client',{code:editor.getSession().getValue()});
+    });
+
+
+
+/************************************
+*            FUNCIONES socket.io    *
+*                                   *
+************************************/
+
+socket.on('change_editor', function( data ){    
+
+
+    editor.getSession().setValue(data.code)   
+     
+        
+});
+socket.on('online_user', function( data ){
+
+});
