@@ -1,9 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  div#acciones
-    button enviar
-    
+  div.mdl-grid
+    div.mdl-cell.mdl-cell--4-col.mdl-cell--4-offset
+      div.demo-card-wide.mdl-card.mdl-shadow--1dp
+        div.mdl-card__title
+          h2.mdl-card__title-text access
+        form(action="auth/login",method="POST")
+          div.mdl-card__supporting-text
+            div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input#user.mdl-textfield__input(type="email", name="user")
+              label.mdl-textfield__label Users 
+            div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+              input#password.mdl-textfield__input(type="password", name="password", autocomplete="off")
+              label.mdl-textfield__label Password               
+          div.mdl-card__actions.mdl-card--border
+            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.mdl-js-ripple-effect login
+
+        div.mdl-card__menu
+          button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+            i.material-icons share
+
+
 

@@ -16,5 +16,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "juicy-ace-editor": "~1.1.1"
+  }
 }

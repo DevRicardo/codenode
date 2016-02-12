@@ -5,8 +5,7 @@ var Database = new DB();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	    
-    Database.saveSingleData(['jose','jarl1109@gmail.com','monteria']);
+	
     var users = null;
      Database.getSingleData('jose',  function(resp){
          

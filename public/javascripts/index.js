@@ -4,6 +4,8 @@ var socket = io.connect('/');
     });
 
 
+
+
     socket.on('users', function( data ){        
         var content = "<ul>";
         $.each(data.message, function( index, value ) {
@@ -12,5 +14,10 @@ var socket = io.connect('/');
         content += "<ul>";
 
         $("#dispaly").html(content)
+    });
+
+
+    $("#send").on('click', function(){
+    	socket.emit('message_client',{msj:"jose"});
     });
 
