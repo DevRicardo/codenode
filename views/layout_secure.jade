@@ -23,29 +23,31 @@ html
             a.mdl-navigation__link(href="/auth/logout") Salir
       div.mdl-layout__drawer
         span.mdl-layout-title
-          nav.mdl-navigation
-            a.mdl-navigation__link(href="#") home
-            a.mdl-navigation__link(href="#") configure
-            a.mdl-navigation__link(href="#") message
-            a.mdl-navigation__link(href="#") message
-            div.mdl-layout-spacer Modos del editor
-            ul
-              li.modoli
-                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-1")
-                  input#switch-1.mdl-radio__button(type="radio" name="modo" value="javascript")
-                  span.mdl-radio__label javascript
-              li.modoli
-                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-2")
-                  input#switch-2.mdl-radio__button(type="radio" name="modo" value="html")
-                  span.mdl-radio__label html
-              li.modoli
-                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-3")
-                  input#switch-3.mdl-radio__button(type="radio" name="modo" value="css")
-                  span.mdl-radio__label css
-              li.modoli
-                label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-4")
-                  input#switch-4.mdl-radio__button(type="radio" name="modo" value="php")
-                  span.mdl-radio__label php
+        nav.mdl-navigation
+          div.mdl-layout-spacer Users Online
+          ul.demo-list-icon.mdl-list
+            li.mdl-list__item
+              span.mdl-list__item-primary-content
+                i.material-icons.mdl-list__item-icon person
+                |Ususario conectado               
+          div.mdl-layout-spacer Modes of the editor
+          ul
+            li.modoli
+              label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-1")
+                input#switch-1.mdl-radio__button(type="radio" name="modo" value="javascript")
+                span.mdl-radio__label javascript
+            li.modoli
+              label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-2")
+                input#switch-2.mdl-radio__button(type="radio" name="modo" value="html")
+                span.mdl-radio__label html
+            li.modoli
+              label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-3")
+                input#switch-3.mdl-radio__button(type="radio" name="modo" value="css")
+                span.mdl-radio__label css
+            li.modoli
+              label.mdl-radio.mdl-js-radio.mdl-js-ripple-effect(for="switch-4")
+                input#switch-4.mdl-radio__button(type="radio" name="modo" value="php")
+                span.mdl-radio__label php
                               
       main.mdl-layout__content
         div.page-content
