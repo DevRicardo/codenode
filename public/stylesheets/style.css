@@ -19,10 +19,30 @@ a {
   color: #fff;
 }
 
+.modeul{
+  margin: 2px;
+  padding: 2px;
+}
 .modoli{
   list-style: none;
+  display: inline;
+  margin-left: 3px;
 }
-
+.display_message{
+  width: 98%;
+  height: 150px;
+  border: 1px solid #ccc;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  word-break: break-all;
+}
+.spacer_d{
+  height: 10px;
+  width: 100%;
+}
+#msj{
+  margin-right: 5px;
+}
 
 
 /************************************

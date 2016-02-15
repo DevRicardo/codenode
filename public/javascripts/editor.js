@@ -58,3 +58,5 @@ socket.on('change_editor', function( data ){
 socket.on('online_user', function( data ){
 
 });
+
+socket.on('disconnect');

@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('codenode:server');
 var http = require('http');
 var DB = require('database/database');
+var realtime = require('realtime/realtime');
 var Database = new DB();
 
 /**
@@ -35,37 +36,9 @@ server.on('listening', onListening);
 *                                             *
 ***********************************************/
 var io = require('socket.io').listen(server);
-
-    io.on('connection',function(socket){
-
-      io.emit('online_user',{msj:'usuario_conectado'});
-       
-       /*setInterval(function() {
-
-          Database.getSingleData('jose',  function(resp){
-
-              socket.emit('users',{message:resp});
-          });          
-                
-       },4000);*/
-
-       socket.on('message_client',function(msj){
-           
-           console.log("messaje on client");
-
-       });
-
-
-       socket.on('change_client', function(reqcode){
-           console.log(reqcode);
-           io.emit('change_editor',{code:reqcode.code});
-
-       });
-
-
-
-
-    });
+// Eventos relacionados con las acciones en tiempo real
+// como el chat y la edicion de codigo
+realtime.realtime(io);
 
 
 
