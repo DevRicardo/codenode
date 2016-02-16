@@ -24,7 +24,8 @@ router.post('/login', function(req, res, next) {
            // creando variable de sesion
            var sess = crypto.createHmac('sha1', name).update(email).digest('hex');
            
-           req.session.id_user = id;
+           req.session.name = name;
+           req.session.iduser = id;
            req.session.has = sess;
 
            
@@ -51,11 +52,13 @@ router.post('/login', function(req, res, next) {
 router.get('/logout', function(req, res, next){
     
     // eliminando sesion de la base de datos
-    Auth.destroySession(req.session.id_user, function(result){
+    
+    Auth.destroySession(req.session.iduser, function(result){
+
         if(result.affectedRows > 0){
-        	delete req.session.id;
-            delete req.session.has;
-            res.redirect("/");
+        	delete req.session.iduser;
+          delete req.session.has;
+          res.redirect("/");
         }
     });
     

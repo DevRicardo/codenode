@@ -1,4 +1,25 @@
 
+
+
+
+
+
+
+$(document).on('ready',function(){
+
+    var has = $("#has").val();
+    var name = $("#name").val();
+   
+    setSession(has);
+    setName(name);
+
+
+
+//Conectando socket
+var socket = io.connect('/');
+
+
+
 /************************************
 *            FUNCIONES ACE          *
 *                                   *
@@ -32,7 +53,7 @@
 
     // Detectar cambios en el modo del editor
     $(".mdl-radio__button").on('change', function(){
-        editor.session.setMode("ace/mode/"+this.value);	
+        editor.session.setMode("ace/mode/"+this.value); 
     });
 
     // detectar cuando se preciona una tecla
@@ -48,6 +69,7 @@
 *                                   *
 ************************************/
 
+
 socket.on('change_editor', function( data ){    
 
 
@@ -55,8 +77,24 @@ socket.on('change_editor', function( data ){
      
         
 });
-socket.on('online_user', function( data ){
+
+socket.on('online_user', function(data){
+
+        
+    var user = "";
+
+    for (var i = 0; i < data.usersonline.length; i++) {
+       user += '<li class="mdl-list__item"><span class="mdl-list__item-primary-content">'+ data.usersonline[0].name +'</span></li>';
+    }
+    
+    $("#online").html(user); 
 
 });
 
+socket.emit('online_user', {name:getName(), session:getSession()});
+
+
 socket.on('disconnect');
+
+
+});

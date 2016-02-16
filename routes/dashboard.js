@@ -8,7 +8,12 @@ var Database = new DB();
 /* GET home page. */
 router.get('/', Auth.guest , function(req, res, next) {
        
-     res.render('dashboard', { title: '.:Monitoring:.', has:req.session.has });
+     res.render('dashboard', 
+     	{ 
+     		title: '.:Monitoring:.',
+     		has:req.session.has,
+     		name:req.session.name
+     	});
     
 });
 
